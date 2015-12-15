@@ -1,13 +1,20 @@
 # -*- coding: utf-8 -*-
+import sys
 from setuptools import setup
 
+
+def open_(f):
+    if sys.version_info[0] > 2:
+        return open(f, encoding="utf-8")
+    else:
+        return open(f)
 
 setup(
     author=u'Kiss György',
     author_email='kissgyorgy@me.com',
     url='https://github.com/Walkman/pytest_raisesregexp',
     description='Simple pytest plugin to look for regex in Exceptions',
-    long_description=open('README.rst').read(),
+    long_description=open_('README.rst').read(),
     name='pytest-raisesregexp',
     packages=['pytest_raisesregexp'],
     version='2.0',
